@@ -1,0 +1,3 @@
+#python train_gamma_lfw.py --lamda=1.2 -e=30 --loss="l2" | tee output_l2.txt
+python train_gamma_lfw.py --outer=10 --lamda=0.5 -e=5 --loss="logit" --binary_label=True -L=20 | tee output_logit.txt
+
