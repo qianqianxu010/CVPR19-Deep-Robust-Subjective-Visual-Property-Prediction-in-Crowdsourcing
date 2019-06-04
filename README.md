@@ -12,6 +12,13 @@ This is a PyTorch implementation of the model described in our paper:
 ## Data
 We convert the train/test split in the [original LFW10 dataset](http://cvit.iiit.ac.in/images/Projects/relativeParts/LFW10.zip) to our train and test file in the `data/` folder. The label `0` is ignored in the converted version. Please unzip `data/images.zip` before training.
 
+The data format is `(file_1, file_2, label, attr_id, pair_id, strength)`.
+- `file_1`/`file_2`: file name of images
+- `label`: pairwise comparison label (-1/1)
+- `attr_id`: attribute id, starting from 0.
+- `pair_id`: pair id given a specific attribute, starting from 0. Note that (i,j,-1) and (i,j,1) are the same pair but different samples for the same attribute.
+- `strength`: how many times a label is annotated for a pair given a specific attribute.
+
 For custom dataset, you can write a class that inherits from the base class `PairwiseDataset` in `utils.py` like we do in `LFWDataSet`.
 
 ## Train
