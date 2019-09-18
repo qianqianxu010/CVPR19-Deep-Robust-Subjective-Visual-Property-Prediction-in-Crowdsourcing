@@ -29,6 +29,8 @@ parser.add_argument('--lamda', type=float, default=1.2,
                     help='regularization param for gamma')
 parser.add_argument('--outer', type=int, default=3,
                     help='#outer_epochs to alternatively update network params and gamma')
+parser.add_argument('--wd', type=float, default=0,
+                    help='param for weight decay')
 parser.add_argument('--train_file', type=str, default='data/train_LFW10.txt',
                     help='training set filename')
 parser.add_argument('--dataset', type=str, default='lfw', help='model_name')
@@ -169,7 +171,7 @@ params_a = [{'params': model.parameters()}, {
     'params': score_functions.parameters()}]
 # update one part params.
 # optimizer_a = optim.SGD(params_a, lr=lr, momentum=0.9)
-optimizer_a = optim.Adam(params_a, lr=lr)
+optimizer_a = optim.Adam(params_a, lr=lr, weight_decay=args.wd)
 multisteps = [20, 40, 60, 90, 120]
 scheduler_a = optim.lr_scheduler.MultiStepLR(
     optimizer_a, milestones=multisteps, gamma=0.1)

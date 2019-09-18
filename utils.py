@@ -243,7 +243,6 @@ class LFWDataSet(PairwiseDataset):
         attr_id = int(split[3])  # attr_id
         pair_id = int(split[4])  # edge(x, y)_id
         strength = int(split[5])  # strength
-        attr_id = 0  # attr_id
         return img_id0, img_id1, label, attr_id, pair_id, strength
 
     def _get_img_name(self, img_id):
@@ -345,7 +344,7 @@ class logitloss(nn.Module):
 
     def forward(self, score1, score2, label):
         bz = label.shape[0]
-        score = (score1 - score2)..view_as(label)
+        score = (score1 - score2).view_as(label)
         if label.dtype != score.dtype:
             label = label.type(score.dtype)
         label = (label + 1) / 2
