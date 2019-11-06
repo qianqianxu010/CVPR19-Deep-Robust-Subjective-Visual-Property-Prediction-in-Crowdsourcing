@@ -39,7 +39,8 @@ Please cite our paper if you use this code in your own work:
 @inproceedings{xu2019deep,
   title={Deep Robust Subjective Visual Property Prediction in Crowdsourcing},
   author={Xu, Qianqian and Yang, Zhiyong and Jiang, Yangbangyan and Cao, Xiaochun and Huang, Qingming and Yao, Yuan},
-  booktitle={IEEE/CVF International Conference on Computer Vision and Pattern Recognition},
+  booktitle={{IEEE}/{CVF} International Conference on Computer Vision and Pattern Recognition},
+  pages={8993--9001},
   year={2019}
 }
 ```
